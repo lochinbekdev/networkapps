@@ -106,14 +106,12 @@ func main() {
 		data := make([]byte, *size)
 		copy(data, "GO-PING")
 
-		// --- TUZATILGAN QISM ---
-		var msgType icmp.Type // MUHIM: Umumiy interfeysdan foydalanamiz
+		var msgType icmp.Type
 		if isIPv4 {
 			msgType = ipv4.ICMPTypeEcho
 		} else {
 			msgType = ipv6.ICMPTypeEchoRequest
 		}
-		// -----------------------
 
 		msg := icmp.Message{
 			Type: msgType,
